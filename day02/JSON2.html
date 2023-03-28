@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let s=[
+        {name:"홍길동", "kor":90,"eng":90, "mat":100},
+        {name:"임꺽정", "kor":90,"eng":90, "mat":100},
+        {name:"장길산", "kor":90,"eng":90, "mat":100},
+        {name:"강감찬", "kor":90,"eng":90, "mat":100},
+    ];
+
+     for(let i=0;i<s.length;i++){
+        s[i].total=s[i].kor+s[i].eng+s[i].mat;
+     }
+     for(let i=0;i<s.length;i++){
+        console.log(`${s[i].name}의 총점:${s[i].total}`)
+     }
+     console.log(`====================================`)
+     for(let i in s){
+        console.log(`${s[i].name}의 총점:${s[i].total}`)
+     }
+     console.log(`====================================`)
+     for(let i of s){
+        console.log(`${i.name}의 총점:${i.total}`)
+     }
+     
+     console.log(`====================================`)
+     s.forEach((e)=>{
+        console.log(`${e.name}의 총점:${e.total}`)
+     }
+     )
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //86p
+
+    let person={
+        "name":"홍길동",
+        age:23, //따옴표 생략가능
+        "kor":90,
+        "eng":90,
+        "mat":100
+    }
+    console.log(person);
+    
+    console.log(person.age) //이렇게 호출.
+    console.log(person["age"]); //이렇게도 호출 가능. 여기선 따옴표 필수
+    console.log(person[1]); //이렇게도 호출 가능. 88p
+
+    person.total=person.kor+person.eng+person.mat; //키값 추가!
+    person.avg=person.total/3; //추가 추가!
+
+    console.log(`${person.name}의 총점: ${person.total}
+${person.name}의 평균: ${person.avg}  `);
+
+</script>
