@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<SCRipt>
+    let person=[
+        {name:"홍길동",age:11, phone:"010-0000-0001"}, 
+        {name:"임꺽정",age:21, phone:"010-0000-0002"}, 
+        {name:"장길산",age:41, phone:"010-0000-0003"}, 
+        {name:"이순신",age:22, phone:"010-0000-0004"}, 
+        {name:"강감찬",age:15, phone:"010-0000-0005"}, 
+        {name:"윤성일",age:27, phone:"010-0000-0006"}, 
+        {name:"서희",age:18, phone:"010-0000-0007"}, 
+        {name:"윤관",age:49, phone:"010-0000-0008"}, 
+        {name:"김종서",age:60, phone:"010-0000-0009"}, 
+        {name:"척준경",age:34, phone:"010-0000-0010"}
+    ];
+
+    person.push({name:"김성훈",age:34, phone:"010-0000-0011"});
+    
+    person.forEach(e=>{
+        console.log(`${e.name} ${e.age} ${e.phone}`)
+    });
+    
+    //문제1. 성이 윤씨인 사람
+
+    let result=person.filter(p=>p.name.startsWith("윤"))
+                    .forEach(e=>{console.log(e.name); return 1}); 
+    console.log(result);
+
+    //문제2. 18세 이하
+
+    let underAge19=person.filter(p=>p.age<19);
+    console.log(underAge19); 
+
+    //정렬-데이터를 순서대로 늘어놓는다. (오름차순, 내림차순)
+    let sorted=person.sort((p,p2)=>{
+        if(p.name>p2.name){ //문자는 크다 작다 인경우 ㄱㄴㄷ순
+            return -1;
+        }else if(p.name<p2.name){
+            return 1;
+        }else{
+            return 0;
+        }
+    });
+
+    console.log(sorted);
+    //음수 , 0, 양수 두객체를 비교 
+    //앞의 것이 크면 음수
+    //같으면 0
+    //앞의 것이 작으면 양수
+
+
+    </SCRipt>

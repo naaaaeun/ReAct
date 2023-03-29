@@ -1,0 +1,79 @@
+<!-- 
+문제1) 사각형 면적 구하기
+가로 세로 입력받아 면적 출력.
+
+문제2)
+이름, 일주일간 근무시간, 시간당 급여액 입력받아 주급계산.
+단 20시간 초과 근무 시 초과근무 수당.
+초과수당은 시간당 급여액 50%
+입력은 input, 출력은 span
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문제 1</h2>
+    <span>가로</span><input type="text" id="width"><br>
+    <span>세로</span><input type="text" id="height"><br>
+    <button type="button" onclick="Calc()">확인</button>&nbsp;&nbsp; <br>
+    
+    <div id="result1"></div> 
+
+
+    <h2>문제 2</h2>
+    <span>이름</span><input type="text" id="name"><br>
+    <span>주 근무시간</span><input type="text" id="workedHours"><br>
+    <span>시간당 급여액</span><input type="text" id="wagePerOneHour"><br>
+
+    <button type="button" onclick="goCalc()">확인</button>&nbsp;&nbsp; <br>
+    <button type="button" onclick="goClear()">새로입력</button>&nbsp;&nbsp; <br>
+
+    <div id="result2"></div> 
+</body>
+</html>
+
+<script>
+    //======================================================================================================
+    //문제1
+    function Calc(){
+        let width=parseInt(document.getElementById("width").value);
+        let height=parseInt(document.getElementById("width").value);
+        let surface=(width*height)
+
+        document.getElementById("result1").innerHTML=`넓이:${surface}`;
+    }
+    //문제2 
+    function goCalc(){
+        let name=document.getElementById("name").value;
+        let worktime=document.getElementById("workedHours").value;
+        let perpay=document.getElementById("wagePerOneHour").value;
+        let pay;
+        let overpay;
+
+        worktime=parseInt(worktime);
+        perpay=parseInt(perpay);
+
+        pay=worktime*perpay;
+        if(worktime>20){
+            overpay=(worktime-20)*perpay/2;
+            pay+=overpay;
+        }
+
+        let sentence=`<span>주급은 ${pay}</span>`;
+
+        document.getElementById("result2").innerHTML=sentence;
+    }
+
+    function goClear(){
+        document.getElementById("name").value="";
+        document.getElementById("workedHours").value="";
+        document.getElementById("wagePerOneHour").value="";
+        document.getElementById("result").value="";
+    }
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let arr=[1,2,3,45,6,7,8,10,27];
+    //분해해서 짝수, 홀수 각각 다른 배열로 저장
+    let odd=[];
+    let even=[];
+
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]%2==0){
+            even.push(arr[i]);
+        }else{
+            odd.push(arr[i]);
+        }
+    }
+    console.log(odd);
+    console.log(even);
+
+    //배열의 필터함수. 위같은 코딩을 생략할 수 있음. 
+    //조건을 생성, 조건에 맞는 데이터를 배열을 생성해 반환함.
+    //filter- 매개변수를 하나 가짐, 반환값은 boolean. 결과값이 true인 데이터로 배열 생성.
+
+    function isEven(e){
+        return e%2==0; //조건이 참이면 트루값 반환.
+    }
+
+    even = arr.filter(isEven);
+    console.log(even);
+
+    odd = arr.filter(e=>e%2==1);
+    console.log(odd);
+
+    let overFive = arr.filter(e=>e >5);
+    console.log(overFive);
+
+    let words=["school","survey","assebly","desk","pen","linux","pc","windows","os"];
+    //단어길이 5자 이상인 요소
+    overFive=words.filter(w=>w.length>=5);
+    console.log(overFive);
+
+    //map 매개변수값에 연산하여 반환.
+    let transform=arr.map(w=>w+=5);
+    console.log(transform);
+
+    //filter+map. 짝수면 1더해서 홀수 만들기
+    let transformIf=arr.filter(e=>e%2==0)
+                        .map(e=>e+=1);
+    console.log(transformIf);
+
+
+    //filter+map+foreach. 홀수에 10곱한 후 출력
+    let final=arr.filter(e=>e%2==1)
+                .map(e=>e*=10)
+                .forEach(e=>console.log(e));
+
+    //5글자 이상의 단어들 대문자로 만들기
+    let wordsUpper=words.filter(e=>e.length>=5)
+                        .map(e=>e.toUpperCase()) //소괄호 필수!
+                        .forEach(e=>console.log(e));
+
+
+</script>
