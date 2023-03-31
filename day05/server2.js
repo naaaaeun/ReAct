@@ -1,0 +1,13 @@
+let http = require("http");
+
+let server = http.createServer((request, response) => {
+    response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+    response.end("<H1>Hello my first Webserver 웹서버</H1>");
+  })
+  
+server.listen(4000, () => {
+    console.log("server start http://127.0.0.1:4000");
+  });
+  //먼저 여기서 실행 후 접속
+
+  

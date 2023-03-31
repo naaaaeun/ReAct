@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <form> 
+        암호: <input type="hidden" name="password"value="9999"> <br>   
+        아이디: <input type="text" name="userid"><br>
+        이름: <input type="text" name="userid">    <br>
+        <input type="text" value="보내기" >
+    </form>
+<!--
+    FORM TAG
+    원칙적으로 문서당 1개씩만 사용. 값을 서버로 전달하는 역할.
+    form 태그 중첩 사용시 모든 form의 정보전달 기능이 없어짐. 중첩사용 불가. 연달아 쓰는 경우는 있음
+    http://127.0.0.1:5500/jquery.html?userid=test&userid=%ED%99%8D%EA%B8%B8%EB%8F%99&userid=%EB%B3%B4%EB%82%B4%EA%B8%B0
+
+    서버로 전송하는 방식은 get 방식, post 방식이 있음.
+    클라이언트‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣‣서버
+                header선발대,기초정보 먼저 전송. ex) 브라우저 정보, 1000 byte이내 가벼운 정보
+                body,중요한정보,파일,많은양의데이터
+    get방식: header만 전송, 화면 url에 모든 정보 표출.
+            보안이 필요 없는 1000바이트 이내의 가벼운 정보만 보내고자 할때 사용.
+            ?키1=값1&키2=값2&키3=값3 형태.
+            한글은 다른 문자로 가공. 한글 전송 시 encoding & decoding 필요.
+            요즘은 브라우저가 이 작업 진행하나 브라우저 버전따라 다름.
+            따라서 get방식으로는 한글 전송 안하거나 별도로 인코딩&디코딩 진행
+    post방식: header먼저 보내고 다른 정보는 body에 담아 전송.
+            보내야할 데이터가 많을때 사실상 무제한이지만 30MB 이내.
+            파일, 이미지, 대용량 데이터 등.
+-->
+
+</body>
+</html>
