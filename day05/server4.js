@@ -31,7 +31,7 @@ let server = http.createServer((request, response) => {
       response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
       let x=parseInt(query.x);
       let y=parseInt(query.y);
-      response.end(`${x} - ${y} =${y-x} `);
+      response.end(`${x} - ${y} =${x-y} `);
     }else if(pathname=="/userinfo"){
       response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
       let name=query.username;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이름:<%=boardList%> -->
+    <%for(item of boardList){%>
+        <%=item.id%> <br>
+        <%=item.title%> <br>
+        <%=item.writer%> <br>
+        <%=item.wdate%> <br>
+    <%}%>
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </thead>
+        <tbody>
+            <%for(item of boardList){%>
+                <tr>
+                    <td><%=item.id%> </td>
+                    <td><%=item.title%> </td>
+                    <td><%=item.writer%></td>
+                    <td><%=item.wdate%></td>
+                </tr>
+            <%}%>
+        </tbody>
+    </table>
+</body>
+</html>
