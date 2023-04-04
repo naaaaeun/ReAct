@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        form의 중요 속성
+        method:서버로 전송할 방식 기술.get, post등
+                생략 시 get 방식.
+        action: 서버에서 어떤 url이 정보를 받을지 지정
+                app.use(url, )이 필요. 이 속성 생략 시 자신의 url을 다시 호출.
+        
+    -->
+    <form action="/login">
+        아이디: <input type="text" name="userid"><br>
+        패스워드:<input type="text" name="password"><br>
+        <input type="submit" value="보내기"><br>
+    </form>
+</body>
+</html>

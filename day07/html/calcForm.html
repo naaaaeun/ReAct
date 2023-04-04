@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name = "myform" action="/calc" method="get" >
+        <input type="hidden" name = "operator" id="operator">
+        x : <input type="text" name= "x" id=""><br/>
+        y : <input type="text" name ="y" id=""><br/><br/>
+
+        <button type="button" id="btnAdd">더하기</button>&nbsp;&nbsp;
+        <button type="button" id="btnSub">빼기</button>&nbsp;&nbsp;
+        <button type="button" id="btnMul">곱하기</button>&nbsp;&nbsp;
+        <button type="button" id="btnDiv">나누기</button>&nbsp;&nbsp;
+    </form>
+</body>
+</html>
+
+<!-- input태그는
+부라우저에서 값을 읽어올 때는 id가 제일 편하다. name은 불편함,
+서버로 정보를 보낼 때는 name 속성에 담아서 보냄  -->
+
+<script>
+    window.onload = ()=>{
+        let btnAdd = document.getElementById("btnAdd");
+        let btnSub = document.getElementById("btnSub");
+        let btnMul = document.getElementById("btnMul");
+        let btnDiv = document.getElementById("btnDiv");
+
+        btnAdd.addEventListener("click", ()=>{
+            document.getElementById("operator").value = "1";
+        
+            //form객체에 대한 접근 방법 document.name 속성
+            //이렇게 하면 submit을 누른것과 같은 효과임
+            document.myform.submit();
+        })
+
+        btnSub.addEventListener("click", ()=>{
+            document.getElementById("operator").value = "2";
+            document.myform.submit();
+        })
+
+        btnMul.addEventListener("click", ()=>{
+            document.getElementById("operator").value = "3";
+            document.myform.submit();
+        })
+
+        btnDiv.addEventListener("click", ()=>{
+            document.getElementById("operator").value = "4";
+            document.myform.submit();
+        })
+
+
+    }
+
+
+</script>
