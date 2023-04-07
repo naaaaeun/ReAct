@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+
+  <%-include('../layout/header.ejs')%> 
+
+<div class="container mt-3">
+  <h1>로그온</h1>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="userid" placeholder="아이디">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="password" class="form-control" id="password" placeholder="패스워드">
+  </div>
+
+
+  
+  	<div class="container" style="text-align:right">
+	 
+	  <div class="btn-group">
+	    
+       <button type="button" class="btn btn-primary" id="sessionCheck">로그온</button>&nbsp;&nbsp;
+<!--       
+	    <button type="button" class="btn btn-primary" onclick="goCancel()">취소</button>&nbsp;&nbsp; -->
+	  </div>
+	</div>
+</form>	
+</div>
+
+</body>
+</html>
+
+<script>
+
+$(document).ready(()=>{
+    $("#sessionCheck").click(()=>{
+      let params=$("#myform").serialize(); //파일전송 시 사용.
+      let userid = $("#userid").val();
+      let password = $("#password").val();
+      $.ajax({
+        url:"/member/sessionCheck",
+        data:{
+          userid:userid,
+          password:password
+        },
+        method:"post",
+        dataType:"json"
+      }).then((result)=>{
+          alert(`로그온 성공. ${result.usernameA}님 환영합니다.`)
+      }).catch((res, status,error)=>{
+          alert("로그온 실패")
+      });
+    });
+
+
+
+  });
+
+
+
+</script>

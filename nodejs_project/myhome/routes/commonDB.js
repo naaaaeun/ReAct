@@ -36,4 +36,8 @@ async function mysqlRead(sql, params) {
     return promise;
 }
 
-exports.mysqlRead = mysqlRead;
+exports.mysqlRead =mysqlRead;
+exports.DBInfo =DBInfo;
+
+
+
