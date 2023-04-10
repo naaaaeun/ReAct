@@ -19,11 +19,11 @@
   <h1>로그온</h1>
 
   <div class="input-group mb-3">
-    <input type="text" class="form-control" id="userid" placeholder="아이디">
+    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
   </div>
 
   <div class="input-group mb-3">
-    <input type="password" class="form-control" id="password" placeholder="패스워드">
+    <input type="password" class="form-control" id="password" placeholder="패스워드"name="password">
   </div>
 
 
@@ -32,9 +32,9 @@
 	 
 	  <div class="btn-group">
 	    
-       <button type="button" class="btn btn-primary" id="sessionCheck">로그온</button>&nbsp;&nbsp;
-<!--       
-	    <button type="button" class="btn btn-primary" onclick="goCancel()">취소</button>&nbsp;&nbsp; -->
+       <button type="button" class="btn btn-primary" id="btnLogon">로그온</button>&nbsp;&nbsp;
+      
+	    <button type="button" class="btn btn-primary" id="goCancel()">취소</button>&nbsp;&nbsp;
 	  </div>
 	</div>
 </form>	
@@ -46,7 +46,12 @@
 <script>
 
 $(document).ready(()=>{
-    $("#sessionCheck").click(()=>{
+  $("#btnLogon").click(goLogon)
+  //goLogon() : 함수의 결과값 반환. 소괄호 생략시 주소만 전달.
+  $("#btnCancel").click(goCancle)
+
+
+    $("#sessionCheck").click(()=>{ //button id 수정해야 사용가능.
       let params=$("#myform").serialize(); //파일전송 시 사용.
       let userid = $("#userid").val();
       let password = $("#password").val();
@@ -69,6 +74,25 @@ $(document).ready(()=>{
 
   });
 
+
+  function goLogon(){
+    $.ajax({
+      url:"/member/login",
+      data:{userid:$("#userid").val(),password:$("#password").val()},
+      dataType:"json",
+      method:"post"
+    }).done((res)=>{
+      console.log(res.result)
+      if(res.result=="success"){
+        alert(res.msg)
+        location.href="/";
+      }else{
+        alert(res.msg)
+      }
+    }).fail((res,status,error)=>{
+      console.log(status)
+    })
+  }
 
 
 </script>
