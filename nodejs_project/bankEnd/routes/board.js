@@ -20,18 +20,15 @@ router.get('/list/:pg', async function(req, res, next) {
   let results = await commonDB.mysqlRead(sql,[]);
   let totalCnt = results[0]["cnt"];
 
-  sql=`
-    select id, title, writer,
-    contents, date_format(wdate, '%Y-%m-%d') wdate, num, username 
-    from (	SELECT A.id, A.title, A.writer, A.wdate, C.username, contents
-      ,@rownum:=@rownum+1 num
-      FROM tb_board A
-      LEFT OUTER JOIN (SELECT @rownum:=0)B ON 1=1
-      LEFT OUTER JOIN tb_member C ON A.writer=C.userid
-      ORDER BY id DESC
-    )A
-    LIMIT ${(pg-1)*10},10
-  `;
+  sql = `SELECT T.id, T.title, T.writer, T.num, T.username, date_format(T.wdate, '%Y-%m-%d') wdate 
+  FROM (
+  SELECT A.id, A.title, A.writer, A.wdate, c.username, @rownum:=@rownum+1 as num
+    FROM tb_board A 
+    LEFT JOIN (SELECT @rownum:=0) B ON 1=1
+    LEFT JOIN tb_member c ON a.writer = c.username
+  ORDER BY id DESC
+  ) T
+  LIMIT ${(pg - 1) * 10}, 10;`;
 
   results = await commonDB.mysqlRead(sql, []);
   res.render('board/board_list', { session:req.session,

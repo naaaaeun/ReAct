@@ -12,6 +12,7 @@ const DBInfo={
 };
 
 let readpool = mysql.createPool(DBInfo);
+
 async function mysqlRead(sql, params) {
     let promise = new Promise((resolve, reject)=>{
         readpool.getConnection((err, conn)=>{

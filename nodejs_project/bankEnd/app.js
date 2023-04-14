@@ -11,9 +11,11 @@ const cors=require("cors");
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
 let boardRouter = require("./routes/board");
+let restBoardRouter = require("./routes/rest_board");
 let memberRouter = require("./routes/member");
 let heroRouter = require("./routes/hero");
 let scoreRouter = require("./routes/score");
+
 const { createSecretKey } = require("crypto");
 let app = express();
 
@@ -44,6 +46,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/board", boardRouter);
+app.use("/rest_board", restBoardRouter);
 app.use("/member", memberRouter);
 app.use("/hero", heroRouter);
 app.use("/score", scoreRouter);

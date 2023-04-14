@@ -29,6 +29,28 @@ function getPaging(pg, totalCnt, pageGroupSize=10){
     }
 
 }
+function checkInfo(req, checkInfos){
+    msg="";
+    result=0;
+    resultInfo={};
 
+    for(info of checkInfos){
+        if(req.body[info.key]==undefined){
+            msg = info.key+" is empty \n";
+            result =1;
+            req.body[info.key]=""; 
+        }
+        if(info.type=="str" && info.range!=-1 && req.body[info.key].length>info.range){
+            msg = msg + info.key+"range error \n";
+        }
+        resultInfo[info.key]=req.body[info.key];
+        resultInfo["result"]=result;
+        resultInfo["msg"]=msg;
+
+        return resultInfo;
+
+    }
+}
 
 exports.getPaging=getPaging;
+exports.checkInfo=checkInfo;

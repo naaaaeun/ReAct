@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-let commondb = require('./commondb');
+let commondb = require('./commonDB');
 
 /* GET home page. */
 router.get("/list", async function (req, res, next) {
